@@ -2,6 +2,7 @@ const { app, BrowserWindow, ipcMain } = require('electron')
 const { displayEvents } = require('./Events.js')
 const { Createfile } = require('./utils/files.js')
 const path = require('path')
+const { checkForUpdate } = require('./apv.js')
 
 let MainWindow = null
 
@@ -20,4 +21,5 @@ function createWindow () {
 app.on('ready', () => {
     createWindow()
     Createfile()
+    checkForUpdate()
 })
